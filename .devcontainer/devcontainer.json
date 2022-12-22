@@ -1,0 +1,87 @@
+{
+  "name": "sample-lambda",
+  "dockerComposeFile": [
+    "../docker-compose.yml"
+  ],
+  "extensions": [
+    "dotjoshjohnson.xml",
+    "davidanson.vscode-markdownlint",
+    "ms-azuretools.vscode-docker",
+    "tamasfe.even-better-toml",
+    "esbenp.prettier-vscode",
+    "MS-vsliveshare.vsliveshare-pack",
+    "golang.go",
+    "zxh404.vscode-proto3",
+    "xaver.clang-format"
+  ],
+  "service": "sample-lambda",
+  "workspaceFolder": "/workspace",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "editor.formatOnSave": false,
+        "[json]": {
+          "editor.formatOnSave": true,
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[jsonc]": {
+          "editor.formatOnSave": true,
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[yaml]": {
+          "editor.formatOnSave": true,
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[xml]": {
+          "editor.formatOnSave": true,
+          "editor.defaultFormatter": "DotJoshJohnson.xml"
+        },
+        "[markdown]": {
+          "editor.formatOnSave": true,
+          "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+        },
+        "[dockercompose]": {
+          "editor.formatOnSave": true,
+          "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+        },
+        "[toml]": {
+          "editor.formatOnSave": true,
+          "editor.defaultFormatter": "tamasfe.even-better-toml"
+        },
+        "[proto3]": {
+          "editor.formatOnSave": true,
+          "editor.defaultFormatter": "xaver.clang-format"
+        },
+        "go.toolsManagement.checkForUpdates": "off",
+        "go.gopath": "/go",
+        "go.gocodeAutoBuild": true,
+        "go.formatTool": "gofmt",
+        "go.lintTool": "golangci-lint",
+        "go.useLanguageServer": true,
+        "go.toolsEnvVars": {
+          "GOFLAGS": "-tags=e2e"
+        },
+        "[go]": {
+          "editor.formatOnSave": true,
+          "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+          },
+          "editor.snippetSuggestions": "none"
+        },
+        "gopls": {
+          "hoverKind": "SynopsisDocumentation",
+          "usePlaceholders": true,
+          "linkTarget": "pkg.go.dev",
+          "staticcheck": false,
+          "completionDocumentation": true,
+          "completeUnimported": true,
+          "deepCompletion": true
+        },
+        "go.lintFlags": [
+          "--fast"
+        ]
+      }
+    }
+  },
+  "remoteUser": "root"
+}

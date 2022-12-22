@@ -1,5 +1,10 @@
 FROM golang:1.18
 
+## node & generator
+RUN apt update \
+ && apt install -y nodejs npm \
+ && npm install -g openapi-generator
+
 ## for lambda development
 ADD https://github.com/aws/aws-lambda-runtime-interface-emulator/releases/latest/download/aws-lambda-rie /usr/bin/aws-lambda-rie
 RUN chmod +x /usr/bin/aws-lambda-rie

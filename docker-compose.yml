@@ -15,7 +15,9 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
 
   sample-lambda:
-    build: .
+    build:
+      context: .
+      target: develop
     volumes:
       - ${PWD}:/workspace
     environment:

@@ -1,4 +1,9 @@
-FROM golang:1.18
+FROM golang:1.18 AS base
+
+## linter
+RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.50.1
+
+FROM base AS develop
 
 ## node & generator
 RUN apt update \
@@ -15,9 +20,8 @@ RUN chmod +x /usr/bin/aws-lambda-rie
 ## hot reload
 RUN go install github.com/cosmtrek/air@latest
 
-## linter
-RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.50.1
-
 WORKDIR /workspace
 
 CMD ["air", "-c", ".air.toml"]
+
+FROM base AS test

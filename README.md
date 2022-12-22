@@ -6,6 +6,6 @@ cd $_
 docker compose up
 ```
 
-```curl
+```shell
 go test main_test.go
 ```

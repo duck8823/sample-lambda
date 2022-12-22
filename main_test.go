@@ -16,8 +16,14 @@ func Test_APIClient(t *testing.T) {
 	// given
 	want := "\"Hello John!\""
 
+	// and
+	cli := user.NewAPIClient(user.NewConfiguration())
+	if host, exist := os.LookupEnv("SAMPLE_HOST"); exist {
+		cli.GetConfig().Host = host
+	}
+
 	// when
-	got, _, err := user.NewAPIClient(user.NewConfiguration()).UserApi.
+	got, _, err := cli.UserApi.
 		CreateUser(context.Background()).
 		User(user.User{Name: "John"}).
 		Execute()

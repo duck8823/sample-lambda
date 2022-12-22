@@ -18,6 +18,8 @@ services:
     build: .
     volumes:
       - ${PWD}:/workspace
+    environment:
+      SAMPLE_HOST: api-gateway
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.sample-lambda.rule=Host(`127.0.0.1`, `api-gateway`)"

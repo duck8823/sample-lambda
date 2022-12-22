@@ -1,0 +1,6 @@
+name: 'develop'
+description: '開発用のアクション'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+

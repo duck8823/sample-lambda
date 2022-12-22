@@ -12,6 +12,9 @@ RUN chmod +x /usr/bin/aws-lambda-rie
 ## hot reload
 RUN go install github.com/cosmtrek/air@latest
 
+## linter
+RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.50.1
+
 WORKDIR /workspace
 
 CMD ["air", "-c", ".air.toml"]

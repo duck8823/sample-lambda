@@ -13,7 +13,10 @@ generate: ## スキーマからコードを生成する
 	@go generate ./...
 	@go fmt ./generated/go/user/...
 
-e2e_test: download ## テストを実行する
+test: download ## テストを実行する
+	@go test ./...
+
+e2e_test: download ## E2Eテストを実行する
 	@go test main_test.go
 
 lint: download ## Lintを実行する

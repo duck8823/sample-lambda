@@ -7,5 +7,5 @@ docker compose up
 ```
 
 ```shell
-go test main_test.go
+make e2e_test
 ```

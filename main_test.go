@@ -3,11 +3,16 @@ package main_test
 import (
 	"context"
 	"github.com/duck8823/sample-lambda/generated/go/user"
+	"os"
 	"reflect"
 	"testing"
 )
 
 func Test_APIClient(t *testing.T) {
+	if _, isCI := os.LookupEnv("CI"); isCI {
+		t.Skip("起動しとかんとあかんからCIでは動かないよ")
+	}
+
 	// given
 	want := "\"Hello John!\""
 

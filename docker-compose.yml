@@ -20,7 +20,7 @@ services:
       - ${PWD}:/workspace
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.sample-lambda.rule=Host(`127.0.0.1`, `traefik`)"
+      - "traefik.http.routers.sample-lambda.rule=Host(`127.0.0.1`, `api-gateway`)"
       - "traefik.http.routers.sample-lambda.entrypoints=web"
       - "traefik.http.services.sample-lambda.loadbalancer.server.port=8080"
       - "traefik.http.middlewares.sample-lambda.replacepathregex.regex=^/users"

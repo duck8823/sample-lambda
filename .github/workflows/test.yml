@@ -11,8 +11,9 @@ jobs:
       - uses: actions/setup-go@v3
         with:
           go-version: ^1.16
-      - run: docker compose up -d
-      - run: make test
+      - uses: ./.
+        with:
+          task: test
   lint:
     runs-on: ubuntu-latest
     steps:
@@ -20,4 +21,6 @@ jobs:
       - uses: actions/setup-go@v3
         with:
           go-version: ^1.16
-      - run: make lint
+      - uses: ./.
+        with:
+          task: lint

@@ -1,0 +1,52 @@
+---
+openapi: "3.0.0"
+
+info:
+  version: 0.0.1
+  title: サンプル
+servers:
+  - url: http://127.0.0.1
+    description: ローカル開発
+  - url: http://api-gateway
+    description: コンテナ開発
+paths:
+  /users:
+    post:
+      operationId: create_user
+      summary: |-
+        ユーザーを作成する
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+            example:
+              name: John
+      responses:
+        200:
+          description: |-
+            ユーザーの結果
+          content:
+            application/text:
+              schema:
+                $ref: '#/components/schemas/Result'
+      tags:
+        - user
+
+components:
+  schemas:
+    User:
+      title: User
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+    Result:
+      title: Result
+      type: string
+
+tags:
+  - name: user
+    description: ユーザー

@@ -1,0 +1,28 @@
+version: "3.3"
+
+services:
+  api-gateway:
+    image: "traefik:v2.9"
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+    ports:
+      - 127.0.0.1:80:80
+      - 127.0.0.1:8080:8080
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+
+  sample-lambda:
+    build: .
+    volumes:
+      - ${PWD}:/workspace
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.sample-lambda.rule=Host(`127.0.0.1`, `traefik`)"
+      - "traefik.http.routers.sample-lambda.entrypoints=web"
+      - "traefik.http.services.sample-lambda.loadbalancer.server.port=8080"
+      - "traefik.http.middlewares.sample-lambda.replacepathregex.regex=^/users"
+      - "traefik.http.middlewares.sample-lambda.replacepathregex.replacement=/2015-03-31/functions/function/invocations"
+      - "traefik.http.routers.sample-lambda.middlewares=sample-lambda@docker"

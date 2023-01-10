@@ -3,7 +3,7 @@ module github.com/duck8823/sample-lambda
 go 1.19
 
 require (
-	github.com/aws/aws-lambda-go v1.36.1
+	github.com/aws/aws-lambda-go v1.37.0
 	golang.org/x/oauth2 v0.4.0
 )
 

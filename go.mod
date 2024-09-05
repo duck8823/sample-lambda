@@ -4,5 +4,5 @@ go 1.19
 
 require (
 	github.com/aws/aws-lambda-go v1.47.0
-	golang.org/x/oauth2 v0.22.0
+	golang.org/x/oauth2 v0.23.0
 )
